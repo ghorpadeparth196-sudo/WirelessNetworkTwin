@@ -1,4 +1,4 @@
-// All communication with the Flask backend lives in this one file.
+
 
 const API_BASE =
   (import.meta.env.VITE_API_URL || "https://wirelessnetworktwin-1.onrender.com")
