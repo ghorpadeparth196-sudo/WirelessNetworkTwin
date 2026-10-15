@@ -12,8 +12,21 @@ import database as db
 from models import BUILDINGS, CAMPUS_HEIGHT, CAMPUS_WIDTH
 from simulation import Simulation
 
+
 app = Flask(__name__)
-# Allow the React dev server (another port) to call this API.
+
+@app.route("/")
+def home():
+    return {
+        "status": "ok",
+        "message": "WirelessNetworkTwin backend is running"
+    }
+
+@app.route("/health")
+def health_check():
+    return {"status": "ok"}
+
+# Allow frontend API requests
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 db.init_db()          # creates the SQLite file + tables + 4 APs if missing
